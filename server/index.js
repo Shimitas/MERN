@@ -23,15 +23,10 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-
-
 db.on('error',()=>{console.log('mongodb connection error:')})
 
 app.listen(PORT,()=>{
     console.log(`sever is up on port ${PORT}`);
 })
-// app.get('/',(req, res)=>{
-//     res.send('api is working find')
-// })
 
 app.use('/movies',routes)
