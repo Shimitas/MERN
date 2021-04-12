@@ -11,6 +11,9 @@
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
+  "engines": {
+    "node": "15.x"
+  },
   "author": "Moshe Yaso",
   "license": "ISC",
   "dependencies": {
