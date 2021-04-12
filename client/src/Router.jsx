@@ -8,13 +8,9 @@ export default function MoviesRouter() {
         <Router>
         <div>
             <Switch>
-<Route path='/' component={Home}/>
-<Route path='/smart' component={smartTable}/>
-
-
+            <Route path='/' component={Home}/>
+            <Route path='/smart' component={smartTable}/>
             </Switch>
-
-
         </div>
         </Router>
     )
