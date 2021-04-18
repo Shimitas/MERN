@@ -1,18 +1,23 @@
 const dotenv= require('dotenv');
 dotenv.config();
 const bodyParser = require('body-parser');
+const cors=require('cors');
 const express = require('express');
 const app = express();
-const PORT=process.env.PORT || 8080;
-const cors=require('cors');
+const db=require('./DB');
 const routes = require('./routes/movie-router')
-const db=require('./DB')
+
 const path=require('path');
 
+const PORT=process.env.PORT || 8080;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+
+db.on('error',()=>{console.log('mongodb connection error:')})
+
+app.use('/movies',routes)
 
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
@@ -23,10 +28,8 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-db.on('error',()=>{console.log('mongodb connection error:')})
 
 app.listen(PORT,()=>{
     console.log(`sever is up on port ${PORT}`);
 })
 
-app.use('/movies',routes)
