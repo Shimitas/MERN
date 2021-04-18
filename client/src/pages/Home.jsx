@@ -4,13 +4,8 @@ import getAllMovies from '../service/movies-service'
 import CustomTableComponent from '../components/table.component'
 
 
-// const override = css`
-// display: block;
-// margin: 0 auto;
-// border-color: red;
-// `;
-
 export default function Home(props) {
+  
 const [movies, setMovies] = useState([])
 useEffect(getMovies,[])
 function getMovies() {
@@ -74,9 +69,6 @@ function getMovies() {
             <h1>Home</h1>
 
             <CustomTableComponent data={movies} title={"Movies"} columns={movieColumns}/>
-            {/* <ClockLoader color={"red"} loading={loading} css={override} size={100} /> */}
-            {/* {showMovie(myMovies)} */}
-            {/* <button onClick={getMovies}>GET MOVIES</button> */}
             
         </div>
     )

@@ -19,6 +19,11 @@ db.on('error',()=>{console.log('mongodb connection error:')})
 
 app.use('/movies',routes)
 
+app.listen(PORT,()=>{
+    console.log(`sever is up on port ${PORT}`);
+})
+
+
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     app.use(express.static(path.join(__dirname, '../client/build')));
@@ -29,7 +34,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-app.listen(PORT,()=>{
-    console.log(`sever is up on port ${PORT}`);
-})
 
