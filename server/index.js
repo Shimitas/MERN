@@ -14,7 +14,8 @@ const PORT=process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-
+// git config --global user.email "you@example.com"
+// git config --global user.name "Your Name"
 db.on('error',()=>{console.log('mongodb connection error:')})
 
 app.use('/movies',routes)
