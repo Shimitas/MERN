@@ -1,10 +1,20 @@
 import React, {useState , useEffect} from 'react'
-
 import getAllMovies from '../service/movies-service'
 import CustomTableComponent from '../components/table.component'
+import {addMovie , showMovies} from '../redux/actions'
+import {connect} from 'react-redux'
+
+const mapDispatchToProps=(dispatch)=>({
+  addMovieToStore:() => dispatch(addMovie),
+  showMovieInStore:() => dispatch(showMovies)
+})
+
+// const mapStateToProps = (state)=>{
+//   return {...state , movies :state.list.movies || []}
+// } 
 
 
-export default function Home(props) {
+function Home(props) {
   
 const [movies, setMovies] = useState([])
 useEffect(getMovies,[])
@@ -73,3 +83,6 @@ function getMovies() {
         </div>
     )
 }
+
+
+export default connect( mapDispatchToProps)(Home)

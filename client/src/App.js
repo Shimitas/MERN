@@ -1,24 +1,19 @@
-import React from 'react'
-import MoviesRouter from './Router'
-import Welcome from './components/welcome.component'
-import './App.css';
+import React from "react";
+import MoviesRouter from "./Router";
+// import { showMovies } from './redux/actions';
+import { connect } from 'react-redux';
+import "./App.css";
+
+const mapStateToProps = (state) => {
+  return {...state, movies:state.movies || []}
+}
 
 function App() {
-
   return (
     <div className="App">
-      <Welcome/>
-    <MoviesRouter/>
+      <MoviesRouter />
     </div>
   );
 }
 
-export const myNumbers=(num1,num2)=>{
-
-  let sum=num1+num2;
-  let avg=sum/2;
-  return avg;
-
-} 
-
-export default App;
+export default connect (mapStateToProps , null)(App);
