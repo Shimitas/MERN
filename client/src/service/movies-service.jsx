@@ -1,8 +1,8 @@
 
 
-let PORT=process.env.PORT || 3000;
+// let PORT=process.env.PORT || 3000;
 
-// const API=process.env.NODE_ENV === 'production' ? `https://movies124.herokuapp.com` : `http://localhost:3000`;
+const API=process.env.NODE_ENV === 'production' ? `https://movies124.herokuapp.com` : `http://localhost:3000`;
 
 export default async function getAllMovies() {
 
